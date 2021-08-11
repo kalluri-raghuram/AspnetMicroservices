@@ -14,10 +14,10 @@ namespace Discount.Grpc.Services
     public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
     {
         private readonly IDiscountRepository _repository;
-        private readonly ILogger _logger;
+        private readonly ILogger<DiscountService> _logger;
         private readonly IMapper _mapper;
 
-        public DiscountService(IDiscountRepository repository, IMapper mapper,  ILogger logger)
+        public DiscountService(IDiscountRepository repository, IMapper mapper,  ILogger<DiscountService> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
